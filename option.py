@@ -1,6 +1,6 @@
 import argparse
 
-parser = argparse.ArgumentParser(description='EDSR and MDSR')
+parser = argparse.ArgumentParser(description='HKDnet')
 
 # Hardware specifications
 parser.add_argument('--n_threads', type=int, default=0,
@@ -18,50 +18,29 @@ parser.add_argument('--crop_size', type=int, default=144)
 
 parser.add_argument('--n_colors', default=1,
                     help='n_colors')
-parser.add_argument('--data_train_lr', type=str, default=r'./Datasets/image_bicx4',
-                    help='train dataset name')
 parser.add_argument('--data_train_hr', type=str, default=r'./Datasets/images',
                     help='train dataset name')
 parser.add_argument('--data_val_hr', type=str, default=r'./Valset',
                     help='Val dataset name')
 parser.add_argument('--scale', default=2,
                     help='super resolution scale')
-parser.add_argument('--patch_size', type=int, default=192,
-                    help='output patch size')
 
 # Model specifications
-parser.add_argument('--model', default='RCAN',
-                    help='model name')
 
 parser.add_argument('--act', type=str, default='relu',
                     help='activation function')
-parser.add_argument('--pre_train', type=str, default='.',
-                    help='pre-trained model directory')
-parser.add_argument('--extend', type=str, default='.',
-                    help='pre-trained model directory')
 parser.add_argument('--n_resblocks', type=int, default=20,
                     help='number of residual blocks')
 parser.add_argument('--n_feats', type=int, default=64,
                     help='number of feature maps')
 parser.add_argument('--res_scale', type=float, default=1,
                     help='residual scaling')
-parser.add_argument('--shift_mean', default=True,
-                    help='subtract pixel mean from the input')
-parser.add_argument('--precision', type=str, default='single',
-                    choices=('single', 'half'),
-                    help='FP precision for test (single | half)')
 
 # Training specifications
-parser.add_argument('--epochs', type=int, default=300,
+parser.add_argument('--epochs', type=int, default=250,
                     help='number of epochs to train')
 parser.add_argument('--batch_size', type=int, default=64,
                     help='input batch size for training')
-parser.add_argument('--split_batch', type=int, default=1,
-                    help='split the batch into smaller chunks')
-parser.add_argument('--self_ensemble', action='store_true',
-                    help='use self-ensemble method for test')
-parser.add_argument('--gan_k', type=int, default=1,
-                    help='k value for adversarial loss')
 
 # Optimization specifications
 parser.add_argument('--lr', type=float, default=1e-4,
@@ -85,12 +64,6 @@ parser.add_argument('--epsilon', type=float, default=1e-8,
                     help='ADAM epsilon for numerical stability')
 parser.add_argument('--weight_decay', type=float, default=0,
                     help='weight decay')
-
-# Loss specifications
-parser.add_argument('--loss', type=str, default='1*L1+1*VGG',
-                    help='loss function configuration')
-parser.add_argument('--skip_threshold', type=float, default='1e6',
-                    help='skipping batch that has large error')
 
 # Log specifications
 parser.add_argument('--log_interval', type=int, default='100',
