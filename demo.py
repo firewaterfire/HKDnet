@@ -11,7 +11,7 @@ from imageio import imread, imsave
 def load_model():
     fusion_part = Student_fu(args).cuda()
     sr_part = Student_sr(args).cuda()
-    model_dir = './checkpoint/2x/fu_srnet.pth.tar'
+    model_dir = './checkpoint/4x/fu_srnet.pth.tar'
     checkpoint = torch.load(model_dir)
     fusion_part.load_state_dict(checkpoint['Sec_Fusionnet_state_dict'])
     sr_part.load_state_dict(checkpoint['srnet_state_dict'])
@@ -88,8 +88,8 @@ def get_test_images(paths,  mode='L'):
 	return images
 
 def main():
-    test_path_lr = "./sourceimages/2x/"
-    output_path = './outputs/2x/'
+    test_path_lr = "./sourceimages/4x/"
+    output_path = './outputs/4x/'
     if os.path.exists(output_path) is False:
         os.mkdir(output_path)
     mode = "L"
