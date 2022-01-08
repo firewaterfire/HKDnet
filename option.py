@@ -22,7 +22,7 @@ parser.add_argument('--data_train_hr', type=str, default=r'./Datasets/images',
                     help='train dataset name')
 parser.add_argument('--data_val_hr', type=str, default=r'./Valset',
                     help='Val dataset name')
-parser.add_argument('--scale', default=4,
+parser.add_argument('--scale', default=2,
                     help='super resolution scale')
 
 # Model specifications
