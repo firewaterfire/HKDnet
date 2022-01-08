@@ -1,5 +1,5 @@
 # HKDnet
-Paper Title: Heterogeneous Knowledge Distillation for Simultaneous Infrared-Visible Image Fusion and Super-Resolution
+Paper Title: "Heterogeneous Knowledge Distillation for Simultaneous Infrared-Visible Image Fusion and Super-Resolution"
 
 email：1806010730@qq.com
 
