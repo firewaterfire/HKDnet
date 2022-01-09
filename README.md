@@ -19,7 +19,7 @@ Install and run demo:
 
     1. download the code
         git clone https://github.com/firewaterfire/HKDnet.git
-        cd MetaLearning-Fusion
+        cd HKDnet
 
     2. run the demo file: 
         python demo.py
